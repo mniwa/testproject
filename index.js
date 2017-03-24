@@ -1,14 +1,6 @@
-const http = require('http');
- 
-const hostname = 'http://meraki-nodejs-test.azurewebsites.net';
-const port = 3000;
- 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+var http = require('http')
+var port = process.env.PORT || 1337;
+http.createServer(function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Hello World\n');
-});
- 
-server.listen(port, hostname, () => {
-
-});
+}).listen(port);
